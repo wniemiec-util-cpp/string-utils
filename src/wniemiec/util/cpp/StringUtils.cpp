@@ -1,11 +1,11 @@
-#include "../../../../include/wniemiec/data/cpp/StringUtils.hpp"
+#include "../../../../include/wniemiec/util/cpp/StringUtils.hpp"
 
 #include <iostream>
 #include <vector>
 #include <string.h>
 #include <algorithm>
 
-using namespace wniemiec::data::cpp;
+using namespace wniemiec::util::cpp;
 
 //-------------------------------------------------------------------------
 //      Constructor

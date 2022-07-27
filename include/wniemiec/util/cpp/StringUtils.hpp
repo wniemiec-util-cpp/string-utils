@@ -10,7 +10,7 @@
 #include <iostream>
 #include <vector>
 
-namespace wniemiec { namespace data { namespace cpp {
+namespace wniemiec { namespace util { namespace cpp {
 
     /**
      * Contains methods that perform string manipulation.

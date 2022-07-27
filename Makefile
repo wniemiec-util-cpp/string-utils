@@ -1,14 +1,20 @@
-OBJS	= StringUtils.o
-SOURCE	= src/wniemiec/data/cpp/StringUtils.cpp
-CC	 = g++ 
+CC	 	 = g++ 
 FLAGS	 = -c
-LFLAGS	 = 
+LFLAGS	 = -std=c++17
+TESTDIR	 = test
+SOURCE 	 = src/wniemiec/util/cpp
+BINARY	 = bin
 
-all: $(OBJS)
-	$(CC) -c $(OBJS) $(LFLAGS) -std=c++17
-
-StringUtils.o: src/wniemiec/data/cpp/StringUtils.cpp
-	$(CC) $(FLAGS) src/wniemiec/data/cpp/StringUtils.cpp -std=c++17
+all: 
+	mkdir $(BINARY)
+	$(CC) $(FLAGS) $(SOURCE)/StringUtils.cpp -o $(BINARY)/StringUtils.o $(LFLAGS)
 
 clean:
-	rm -f $(OBJS) $(OUT)
+	rm -f *.o
+	cmake --build $(TESTDIR) --target clean-all
+
+.PHONY: test
+test:
+	cmake $(TESTDIR)/CMakeLists.txt
+	make -C $(TESTDIR)
+	$(TESTDIR)/runTests

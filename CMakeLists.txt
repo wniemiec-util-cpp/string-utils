@@ -25,7 +25,7 @@ include_directories("${PROJECT_SOURCE_DIR}/test")
 
 # Project source files
 set(string_utils_sources
-        src/wniemiec/data/cpp/StringUtils.cpp
+        src/wniemiec/util/cpp/StringUtils.cpp
 )
 
 add_executable(string_utils ${string_utils_sources})
@@ -38,3 +38,5 @@ target_link_libraries(
 )
 include(GoogleTest)
 gtest_discover_tests(string_utils)
+
+add_subdirectory(test)
