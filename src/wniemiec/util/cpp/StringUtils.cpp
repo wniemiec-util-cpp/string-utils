@@ -56,3 +56,14 @@ std::string StringUtils::to_upper(std::string str)
     return upper_string;
 }
 
+std::string StringUtils::replace_all(std::string str, std::string old_str, std::string new_str)
+{
+    std::string replaced_str = str;
+    int index;
+    
+    while ((index = replaced_str.find(old_str)) != std::string::npos) {
+        replaced_str.replace(index, new_str.length(), new_str);
+    }
+
+    return replaced_str;
+}

@@ -52,5 +52,21 @@ namespace wniemiec { namespace util { namespace cpp {
          * @throws      std::invalid_argument If string is null
          */
         static std::string to_upper(std::string str);
+
+        /**
+         * Searches a string for a value and generates a new string with the 
+         * value(s) replaced.
+         * 
+         * @param       str Base string
+         * @param       old_value Value to be search for
+         * @param       new_value Value to replace with
+         * 
+         * @return      New string with the value(s) replaced
+         */
+        static std::string replace_all(
+            std::string str, 
+            std::string old_value, 
+            std::string new_value
+        );
     };
 }}}
