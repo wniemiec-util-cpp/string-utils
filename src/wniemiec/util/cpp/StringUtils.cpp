@@ -22,7 +22,7 @@ StringUtils::StringUtils()
 std::vector<std::string> StringUtils::split(std::string str, std::string sep)
 {
     if (str.empty()) {
-        return std::vector<std::string>();
+        return std::vector<std::string>({str});
     }
 
     char* cstr=const_cast<char*>(str.c_str());
