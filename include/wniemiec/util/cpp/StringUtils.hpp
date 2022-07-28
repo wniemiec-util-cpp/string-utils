@@ -32,13 +32,10 @@ namespace wniemiec { namespace util { namespace cpp {
          * Returns a list of the words in the string, separated by the 
          * delimiter string.
          * 
-         * @param       str String to be splited.
+         * @param       str String to be splitted.
          * @param       sep Character dividing the string into split groups.
          * 
          * @return      Vector with split groups
-         * 
-         * @throws      std::invalid_argument If string is null or if separator
-         * is null
          */
         static std::vector<std::string> split(std::string str, std::string sep);
 
@@ -48,8 +45,6 @@ namespace wniemiec { namespace util { namespace cpp {
          * @param       str Some string
          * 
          * @return      String in upper case
-         * 
-         * @throws      std::invalid_argument If string is null
          */
         static std::string to_upper(std::string str);
 

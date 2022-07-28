@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string.h>
+#include <sstream>
 #include <algorithm>
 
 using namespace wniemiec::util::cpp;
@@ -20,8 +21,9 @@ StringUtils::StringUtils()
 //-------------------------------------------------------------------------
 std::vector<std::string> StringUtils::split(std::string str, std::string sep)
 {
-    if (str.empty())
+    if (str.empty()) {
         return std::vector<std::string>();
+    }
 
     char* cstr=const_cast<char*>(str.c_str());
     char* current;
@@ -41,8 +43,9 @@ std::vector<std::string> StringUtils::split(std::string str, std::string sep)
 
 std::string StringUtils::to_upper(std::string str)
 {
-    if (str.empty())
+    if (str.empty()) {
         return str;
+    }
     
     std::string upper_string = str;
 
@@ -56,14 +59,24 @@ std::string StringUtils::to_upper(std::string str)
     return upper_string;
 }
 
-std::string StringUtils::replace_all(std::string str, std::string old_str, std::string new_str)
+std::string StringUtils::replace_all(
+    std::string str, 
+    std::string old_value, 
+    std::string new_value
+)
 {
-    std::string replaced_str = str;
-    int index;
-    
-    while ((index = replaced_str.find(old_str)) != std::string::npos) {
-        replaced_str.replace(index, new_str.length(), new_str);
+    if (str.empty() || old_value.empty()) {
+        return str;
     }
 
-    return replaced_str;
+    std::vector<std::string> terms = split(str, old_value);
+    std::stringstream replaced_str;
+
+    for (int i = 0; i < terms.size() - 1; i++) {
+        replaced_str << terms[i] << new_value;
+    }
+
+    replaced_str << terms[terms.size() - 1];
+
+    return replaced_str.str();
 }
