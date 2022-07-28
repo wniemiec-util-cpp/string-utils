@@ -26,7 +26,7 @@ void StringUtilsTest::set_up()
 TEST_F(StringUtilsTest, test_split_with_two_terms)
 {
     with_str("hello world");
-    do_split_with_sep("  ");
+    do_split_with_sep(" ");
     assert_terms_are({
         "hello",
         "world"
@@ -96,18 +96,25 @@ TEST_F(StringUtilsTest, test_to_upper_with_upper_and_lower_str)
     assert_result_is("HELLO WORLD");
 }
 
-TEST_F(StringUtilsTest, test_replace_all_with_one_value_and_new_value_with_size_one)
+TEST_F(StringUtilsTest, test_replace_all_with_old_value_and_new_value_with_size_one)
 {
     with_str("hello world");
     do_replace_all_with_old_and_new_value(" ", "-");
     assert_result_is("hello-world");
 }
 
-TEST_F(StringUtilsTest, test_replace_all_with_one_value_and_new_value_with_size_two)
+TEST_F(StringUtilsTest, test_replace_all_with_old_value_and_new_value_with_size_two)
 {
     with_str("hello world");
     do_replace_all_with_old_and_new_value(" ", "--");
     assert_result_is("hello--world");
+}
+
+TEST_F(StringUtilsTest, test_replace_all_with_big_old_value_and_small_new_value)
+{
+    with_str("0x563bd539d2f0 -> 0x563bd538e4c0");
+    do_replace_all_with_old_and_new_value("0x563bd539d2f0", "n0");
+    assert_result_is("n0 -> 0x563bd538e4c0");
 }
 
 

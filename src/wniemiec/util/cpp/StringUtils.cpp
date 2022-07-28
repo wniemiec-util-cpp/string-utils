@@ -19,26 +19,25 @@ StringUtils::StringUtils()
 //-------------------------------------------------------------------------
 //      Methods
 //-------------------------------------------------------------------------
-std::vector<std::string> StringUtils::split(std::string str, std::string sep)
+std::vector<std::string> StringUtils::split(std::string str, std::string delimiter)
 {
     if (str.empty()) {
         return std::vector<std::string>({str});
     }
 
-    char* cstr=const_cast<char*>(str.c_str());
-    char* current;
-    std::vector<std::string> arr;
-
-    current = strtok(cstr,sep.c_str());
-
-    while(current != NULL) 
-    {
-        arr.push_back(current);
-        
-        current = strtok(NULL,sep.c_str());
+    std::vector<std::string> terms = std::vector<std::string>();
+    int start = 0;
+    int end = str.find(delimiter);
+    
+    while (end != -1) {
+        terms.push_back(str.substr(start, end - start));
+        start = end + delimiter.size();
+        end = str.find(delimiter, start);
     }
 
-    return arr;
+    terms.push_back(str.substr(start, end - start));
+
+    return terms;
 }
 
 std::string StringUtils::to_upper(std::string str)
