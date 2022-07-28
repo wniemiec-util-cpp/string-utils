@@ -32,10 +32,11 @@ namespace wniemiec { namespace util { namespace cpp {
         void with_str(std::string str);    
         void do_split_with_sep(std::string sep);
         void assert_terms_are(std::vector<std::string> expected_terms);
+        void do_to_upper();
+        void assert_result_is(std::string expected_result);
         void do_replace_all_with_old_and_new_value(
             std::string old_value, 
             std::string new_value
         );
-        void assert_result_is(std::string expected_result);
     };
 }}}
