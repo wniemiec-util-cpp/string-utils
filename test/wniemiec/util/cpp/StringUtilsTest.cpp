@@ -38,3 +38,17 @@ TEST_F(StringUtilsTest, test_split_with_three_terms)
         terms
     );
 }
+
+TEST_F(StringUtilsTest, test_replace_all_with_one_value_and_size_one)
+{
+    std::string str = "hello world";
+    std::string expected_str = "hello-world";
+    std::string old_value = " ";
+    std::string new_value = "-";
+    std::string obtained_str = StringUtils::replace_all(str, old_value, new_value);
+
+    EXPECT_STREQ(
+        expected_str.c_str(),
+        obtained_str.c_str()
+    );
+}

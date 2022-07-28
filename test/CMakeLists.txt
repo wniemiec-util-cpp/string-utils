@@ -13,7 +13,7 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 # Link runTests with what we want to test and the GTest and pthread library
 file(GLOB object_files
-        "../src/wniemiec/util/cpp/*.o"
+        "../bin/*.o"
 )
 list(FILTER object_files EXCLUDE REGEX ".*main.o.*$")
 file(GLOB test_files

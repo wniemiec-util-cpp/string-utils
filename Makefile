@@ -6,6 +6,7 @@ SOURCE 	 = src/wniemiec/util/cpp
 BINARY	 = bin
 
 all: 
+	rm -rf $(BINARY)
 	mkdir $(BINARY)
 	$(CC) $(FLAGS) $(SOURCE)/StringUtils.cpp -o $(BINARY)/StringUtils.o $(LFLAGS)
 
