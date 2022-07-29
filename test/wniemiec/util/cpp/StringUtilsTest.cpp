@@ -26,7 +26,7 @@ void StringUtilsTest::set_up()
 TEST_F(StringUtilsTest, test_split_with_two_terms)
 {
     with_str("hello world");
-    do_split_with_sep(" ");
+    do_split_with_delimiter(" ");
     assert_terms_are({
         "hello",
         "world"
@@ -36,7 +36,7 @@ TEST_F(StringUtilsTest, test_split_with_two_terms)
 TEST_F(StringUtilsTest, test_split_with_three_terms)
 {
     with_str("hello world two");
-    do_split_with_sep(" ");
+    do_split_with_delimiter(" ");
     assert_terms_are({
         "hello",
         "world",
@@ -47,7 +47,7 @@ TEST_F(StringUtilsTest, test_split_with_three_terms)
 TEST_F(StringUtilsTest, test_split_with_separator_size_two)
 {
     with_str("hello  world");
-    do_split_with_sep("  ");
+    do_split_with_delimiter("  ");
     assert_terms_are({
         "hello",
         "world"
@@ -126,9 +126,9 @@ void StringUtilsTest::with_str(std::string str)
     selected_string = str;
 }
 
-void StringUtilsTest::do_split_with_sep(std::string sep)
+void StringUtilsTest::do_split_with_delimiter(std::string delimiter)
 {
-    obtained_terms = StringUtils::split(selected_string, sep);
+    obtained_terms = StringUtils::split(selected_string, delimiter);
 }
 
 void StringUtilsTest::assert_terms_are(std::vector<std::string> expected_terms)

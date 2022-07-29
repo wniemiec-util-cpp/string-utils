@@ -30,7 +30,7 @@ namespace wniemiec { namespace util { namespace cpp {
     //-------------------------------------------------------------------------
     protected:
         void with_str(std::string str);    
-        void do_split_with_sep(std::string sep);
+        void do_split_with_delimiter(std::string delimiter);
         void assert_terms_are(std::vector<std::string> expected_terms);
         void do_to_upper();
         void assert_result_is(std::string expected_result);
