@@ -14,6 +14,7 @@ include_directories(${GTEST_INCLUDE_DIRS})
 # Link runTests with what we want to test and the GTest and pthread library
 file(GLOB object_files
         "../bin/*.o"
+        "../*/*.o"
 )
 list(FILTER object_files EXCLUDE REGEX ".*main.o.*$")
 file(GLOB test_files
@@ -21,7 +22,7 @@ file(GLOB test_files
 )
 add_executable(runTests ${test_files})
 target_link_libraries(runTests gtest_main pthread ${object_files})
-ADD_CUSTOM_TARGET(clean-all
+ADD_CUSTOM_TARGET(clean-all-test
 	COMMAND rm -rf CMakeFiles; 
             rm -rf CMakeCache.txt; 
             rm -rf cmake_install.cmake; 

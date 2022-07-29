@@ -40,5 +40,6 @@ _deps
 test/Makefile
 test/lib
 runTests
+build
 
 !dist/*
