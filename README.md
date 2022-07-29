@@ -52,8 +52,9 @@ std::cout << StringUtils::to_upper("hello world") << std::endl;  // Returns "HEL
 ## 📖 Documentation
 |        Property        |Type|Description|Default|
 |----------------|-------------------------------|-----------------------------|--------|
-|split |`str: std::string, sep: std::string`|Returns a list of the words in the string, separated by the delimiter string| - |
+|split |`str: std::string, delimiter: std::string`|Returns a list of the words in the string, separated by the delimiter string| - |
 |to_upper |`str: std::string`|Returns a copy of the string in UPPER CASE| - |
+|replace_all |`str: std::string, old_value: std::string, new_value: std::string`|Searches a string for a value and generates a new string with the value(s) replaced| - |
 
 
 ## 🚩 Changelog
