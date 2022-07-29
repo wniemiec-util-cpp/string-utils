@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  BUILD_TYPE: "Unix Makefiles"
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,8 +14,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build
-      # Build your program with the given configuration
-      run: cmake -G "Unix Makefiles"
+      run: cmake -S ${{github.workspace}} -B ${{github.workspace}}/build
       
     - name: Configure build directory
-      run: cmake --build .
+      run: cmake --build build
+    
+    - name: Run tests
+      run: cd build && ctest
