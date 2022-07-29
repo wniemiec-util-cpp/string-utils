@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 2.6)
 
-link_libraries(stdc++fs)
+if (UNIX)
+	link_libraries(stdc++fs)
+else()
+	link_libraries(libc++)
+endif (UNIX)
+
 # Set up Google testing framework
 include(FetchContent)
 FetchContent_Declare(
