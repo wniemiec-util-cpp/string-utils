@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-if (UNIX AND NOT APPLE)
-	link_libraries(stdc++fs)
-else()
-	link_libraries(libc++)
-endif (UNIX)
+link_libraries(stdc++fs)
 
 # Set up Google testing framework
 include(FetchContent)
